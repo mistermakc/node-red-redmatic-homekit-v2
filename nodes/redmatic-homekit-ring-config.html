@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    RED.nodes.registerType('redmatic-homekit-ring-config', {
+        category: 'config',
+        defaults: {
+            name: {value: 'Ring API', required: true},
+        },
+        credentials: {
+            refreshToken: { type: 'text' }
+        },
+        label: function() {
+            return this.name || 'Ring Config';
+        },
+        oneditprepare: function() {
+            // Load the refresh token if available
+            if (this.credentials && this.credentials.refreshToken) {
+                $('#node-config-input-refreshToken').val(this.credentials.refreshToken);
+            }
+        },
+        oneditsave: function() {
+            // Save the refresh token
+            this.credentials = this.credentials || {};
+            this.credentials.refreshToken = $('#node-config-input-refreshToken').val();
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="redmatic-homekit-ring-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-refreshToken"><i class="fa fa-key"></i> Refresh Token</label>
+        <input type="text" id="node-config-input-refreshToken" placeholder="Enter your Ring refresh token">
+    </div>
+
+    <div class="form-fow" style="padding-top: 20px; display: flex; justify-content: center;">
+        <div id="qrcode" style=""></div>
+    </div>
+    <div class="form-fow" style="display: flex; justify-content: center;">
+        <div id="uri" style=""></div>
+    </div>
+</script>

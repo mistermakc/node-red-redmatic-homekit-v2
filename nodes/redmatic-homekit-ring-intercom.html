@@ -1,0 +1,74 @@
+<script type="text/javascript">
+    RED.nodes.registerType('redmatic-homekit-ring-intercom', {
+        category: 'redmatic homekit',
+        defaults: {
+            bridgeConfig: {
+                value: 'CC:22:3D:E3:CE:C7:51826',
+                type: 'redmatic-homekit-bridge',
+                required: true
+            },
+            ringConfig: {
+                type: 'redmatic-homekit-ring-config',
+                required: true
+            },
+            name: {
+                value: ''
+            },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'homekit2.png',
+        color: '#E2D96E',
+        paletteLabel: 'ring intercom',
+        align: 'left',
+        label() {
+            return this.name || 'ring intercom';
+        },
+        labelStyle() {
+            return this.name ? 'node_label_italic' : '';
+        },
+        oneditprepare() {
+            // No additional preparation needed
+        },
+        oneditsave() {
+            // No additional save actions needed
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="redmatic-homekit-ring-intercom">
+    <div class="form-row">
+        <label for="node-input-bridgeConfig"><i class="icon-globe"></i> Bridge</label>
+        <input type="text" id="node-input-bridgeConfig">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ringConfig"><i class="icon-cog"></i> Ring Config</label>
+        <input type="text" id="node-input-ringConfig">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="redmatic-homekit-ring-intercom">
+    <p>
+        This node represents a Ring Intercom device connected through the Ring API.
+        It allows you to control and monitor your Ring Intercom via HomeKit.
+    </p>
+    <h3>Inputs</h3>
+    <ul>
+        <li>
+            <strong>unlock</strong>: Unlocks the intercom when the message payload is "unlock".
+        </li>
+    </ul>
+    <h3>Outputs</h3>
+    <ul>
+        <li>
+            <strong>unlocked</strong>: Emitted when the intercom is unlocked.
+        </li>
+        <li>
+            <strong>ding</strong>: Emitted when the intercom receives a ding event.
+        </li>
+    </ul>
+</script>

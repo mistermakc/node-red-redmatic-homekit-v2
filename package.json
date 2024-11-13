@@ -1,0 +1,60 @@
+{
+  "name": "redmatic-homekit",
+  "version": "4.2.5",
+  "description": "HAP-Nodejs based Node-RED nodes to create HomeKit Accessories",
+  "main": "none",
+  "author": "Sebastian Raff <hobbyquaker@gmail.com>",
+  "contributors": [
+    "Jérôme https://github.com/jp112sdl",
+    "Matthias https://github.com/ptweety",
+    "Julian Pawlowski https://github.com/jpawlowski",
+    "https://github.com/kneip68"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "node-red",
+    "smart home automation",
+    "hap",
+    "homekit",
+    "siri",
+    "homematic"
+  ],
+  "node-red": {
+    "nodes": {
+      "redmatic-homekit-bridge": "nodes/redmatic-homekit-bridge.js",
+      "redmatic-homekit-ring-config": "nodes/redmatic-homekit-ring-config.js",
+      "redmatic-homekit-zigbee-devices": "nodes/redmatic-homekit-zigbee-devices.js",
+      "redmatic-homekit-homematic-devices": "nodes/redmatic-homekit-homematic-devices.js",
+      "redmatic-homekit-homematic-garage": "nodes/redmatic-homekit-homematic-garage.js",
+      "redmatic-homekit-homematic-irrigation": "nodes/redmatic-homekit-homematic-irrigation.js",
+      "redmatic-homekit-switch": "nodes/redmatic-homekit-switch.js",
+      "redmatic-homekit-pseudobutton": "nodes/redmatic-homekit-pseudobutton.js",
+      "redmatic-homekit-statelessprogrammableswitch": "nodes/redmatic-homekit-statelessprogrammableswitch.js",
+      "redmatic-homekit-universal": "nodes/redmatic-homekit-universal.js",
+      "redmatic-homekit-tv": "nodes/redmatic-homekit-tv.js",
+      "redmatic-homekit-ring-intercom": "nodes/redmatic-homekit-ring-intercom.js"
+    }
+  },
+  "dependencies": {
+    "hap-nodejs": "^1.1.0",
+    "ring-client-api": "^13.1.0",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "xo": "^0.59.3"
+  },
+  "engines": {
+    "node": "^18 || ^20"
+  },
+  "xo": {
+    "space": 4,
+    "rules": {
+      "unicorn/filename-case": 0,
+      "capitalized-comments": 0
+    }
+  },
+  "scripts": {
+    "test": "xo",
+    "lintfix": "xo --fix"
+  }
+}
